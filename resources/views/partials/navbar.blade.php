@@ -98,10 +98,10 @@
            </button>
 
            <nav class="nav-links" id="navLinks">
-               <a href="#home" class="nav-link nav-link-custom">Home</a>
+               <a href="{{ route('home') }}#home" class="nav-link nav-link-custom">Home</a>
                <a href="{{ route('menu') }}" class="nav-link nav-link-custom">Menu</a>
                <a href="{{ route('gallery') }}" class="nav-link nav-link-custom">Gallery</a>
-               <a href="#order" class="nav-link nav-link-custom">Order</a>
+               <a href="{{ route('home') }}#order" class="nav-link nav-link-custom">Order</a>
            </nav>
        </div>
    </header>
