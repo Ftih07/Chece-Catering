@@ -410,7 +410,7 @@
             <div class="gallery-header flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
                 <div class="mb-4 lg:mb-0">
                     <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-800">
-                        <span>Gallery</span> - {{ $categories->firstWhere('id', $selectedCategory)?->name ?? 'All Categories' }}
+                        <span>Gallery</span> - {{ $selectedCategory?->name ?? 'All Categories' }}
                     </h2>
                     <p class="text-gray-600 mt-2">Koleksi foto makanan dan minuman terbaik kami</p>
                 </div>
@@ -421,7 +421,7 @@
                             onchange="this.form.submit()">
                             <option value="">All Categories</option>
                             @foreach($categories as $category)
-                            <option value="{{ $category->id }}" {{ $selectedCategory == $category->id ? 'selected' : '' }}>
+                            <option value="{{ $category->slug }}" {{ $selectedSlug === $category->slug ? 'selected' : '' }}>
                                 {{ $category->name }}
                             </option>
                             @endforeach

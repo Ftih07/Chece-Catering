@@ -11,12 +11,17 @@ class GalleryController extends Controller
     public function index(Request $request)
     {
         $categories = GalleryCategory::all();
-        $selectedCategory = $request->get('category');
+        $selectedSlug = $request->get('category');
 
-        $galleries = Gallery::when($selectedCategory, function ($query, $selectedCategory) {
-            $query->where('gallery_category_id', $selectedCategory);
+        $selectedCategory = null;
+        if ($selectedSlug) {
+            $selectedCategory = GalleryCategory::where('slug', $selectedSlug)->first();
+        }
+
+        $galleries = Gallery::when($selectedCategory, function ($query) use ($selectedCategory) {
+            $query->where('gallery_category_id', $selectedCategory->id);
         })->get();
 
-        return view('gallery.index', compact('categories', 'galleries', 'selectedCategory'));
+        return view('gallery.index', compact('categories', 'galleries', 'selectedCategory', 'selectedSlug'));
     }
 }

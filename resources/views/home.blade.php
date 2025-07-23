@@ -220,7 +220,7 @@
             <div class="row g-4 justify-content-center">
                 @foreach($galleryCategories as $category)
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="flip-left" data-aos-delay="{{ $loop->index * 150 }}">
-                    <a href="{{ route('gallery', ['category' => $category->id]) }}" class="text-decoration-none text-inherit">
+                    <a href="{{ route('gallery', ['category' => $category->slug]) }}" class="text-decoration-none text-inherit">
                         <div class="card border-0 shadow-lg card-hover h-100 overflow-hidden">
                             <img src="{{ $category->galleries->first()?->image ? asset('storage/' . $category->galleries->first()->image) : asset('assets/image/default.jpg') }}"
                                 alt="{{ $category->name }}"
