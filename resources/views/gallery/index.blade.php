@@ -31,68 +31,6 @@
             /* Account for fixed navbar */
         }
 
-        /* Navbar Styles (preserved) */
-        .custom-navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            z-index: 999;
-        }
-
-        .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.5rem 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 70px;
-        }
-
-        .logo {
-            height: 50px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #000;
-            font-family: 'Satisfy', cursive;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-red);
-            font-weight: bold;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: #333;
-            display: block;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
         /* Gallery Styles */
         .gallery-header {
             margin-bottom: 2rem;
@@ -300,29 +238,6 @@
         @media (max-width: 768px) {
             body {
                 padding-top: 70px;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                width: 100%;
-                padding: 1rem;
-                gap: 1rem;
-                display: none;
-                border-top: 1px solid #e5e7eb;
-            }
-
-            .nav-links.show {
-                display: flex;
             }
 
             .gallery-grid {
@@ -579,23 +494,6 @@
                 }
             }
         });
-
-        // Mobile menu toggle (preserved)
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('show');
-            });
-
-            // Close menu when clicking on links
-            navLinks.addEventListener('click', (e) => {
-                if (e.target.classList.contains('nav-link')) {
-                    navLinks.classList.remove('show');
-                }
-            });
-        }
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {

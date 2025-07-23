@@ -91,8 +91,9 @@
 
    <header class="custom-navbar">
        <div class="navbar-container">
-           <img src="{{ asset('assets/image/logo.png') }}" alt="Logo Cheche" class="logo" />
-
+           <a href="{{ route('home') }}">
+               <img src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo Cheche" class="logo" />
+           </a>
            <button class="menu-toggle" id="menuToggle">
                <span></span><span></span><span></span>
            </button>

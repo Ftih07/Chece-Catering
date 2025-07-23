@@ -169,7 +169,7 @@
     <!-- Hero -->
     <section class="hero mt-24 mb-16 px-4" id="home">
         <div class="position-relative text-center overflow-hidden rounded-xl">
-            <img src="assets/image/baground1.png" alt="Enjoy the Food" class="w-100 h-auto rounded-xl" />
+            <img src="assets/images/home/hero/hero-images.png" alt="Enjoy the Food" class="w-100 h-auto rounded-xl" />
             <div class="hero-overlay"></div>
             <h1 class="position-absolute top-1/3 w-100 text-white font-satisfy hero-text-shadow bounce-in"
                 style="font-size: clamp(2rem, 5vw, 3rem);" data-aos="fade-down" data-aos-delay="300">
@@ -315,7 +315,7 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <a href="https://lynk.id/cheche_catering" target="_blank" class="text-decoration-none">
-                                        <img src="assets/image/link.svg" alt="Website"
+                                        <img src="assets/images/icon/website-icon.svg" alt="Website"
                                             class="social-icon rounded-circle p-2 bg-white shadow-md"
                                             style="height: 42px; width: 42px;" />
                                     </a>
