@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class MenuSubcategory extends Model
 {
@@ -28,5 +29,16 @@ class MenuSubcategory extends Model
     public function menus()
     {
         return $this->hasMany(Menu::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($model) {
+            if (!$model->slug) {
+                $model->slug = Str::slug($model->name . '-' . uniqid());
+            }
+        });
     }
 }

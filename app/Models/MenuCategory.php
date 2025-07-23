@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class MenuCategory extends Model
 {
@@ -24,5 +25,16 @@ class MenuCategory extends Model
     {
         // Ambil satu gambar saja (pertama)
         return $this->hasOne(GalleryMenuCategory::class)->latest();
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($model) {
+            if (!$model->slug) {
+                $model->slug = Str::slug($model->name . '-' . uniqid());
+            }
+        });
     }
 }

@@ -15,44 +15,52 @@ class MenuController extends Controller
     {
         $categories = MenuCategory::with('subcategories')->get();
 
-        $selectedCategory = $request->query('category');
-        $selectedSubcategory = $request->query('subcategory');
+        $selectedCategorySlug = $request->query('category');
+        $selectedSubcategorySlug = $request->query('subcategory');
 
-        // Ambil subkategori dari kategori terpilih
+        $selectedCategory = null;
+        $selectedSubcategory = null;
+
+        if ($selectedCategorySlug) {
+            $selectedCategory = MenuCategory::where('slug', $selectedCategorySlug)->first();
+        }
+
+        if ($selectedSubcategorySlug) {
+            $selectedSubcategory = MenuSubcategory::where('slug', $selectedSubcategorySlug)->first();
+        }
+
         $subcategories = $selectedCategory
-            ? MenuSubcategory::where('menu_category_id', $selectedCategory)->get()
+            ? MenuSubcategory::where('menu_category_id', $selectedCategory->id)->get()
             : MenuSubcategory::all();
 
-        // Ambil menu berdasarkan subkategori atau semua kalau kosong
         $menus = Menu::with('variants');
 
         if ($selectedSubcategory) {
-            $menus->where('menu_subcategory_id', $selectedSubcategory);
+            $menus->where('menu_subcategory_id', $selectedSubcategory->id);
         } elseif ($selectedCategory) {
-            $subcatIds = MenuSubcategory::where('menu_category_id', $selectedCategory)->pluck('id');
+            $subcatIds = MenuSubcategory::where('menu_category_id', $selectedCategory->id)->pluck('id');
             $menus->whereIn('menu_subcategory_id', $subcatIds);
         }
 
         $menus = $menus->get();
 
-        // Addon tetap ngikut subkategori
         $addon = null;
         $pdfPath = null;
 
         if ($selectedSubcategory) {
-            $subcategory = MenuSubcategory::with('addon')->find($selectedSubcategory);
+            $subcategory = MenuSubcategory::with('addon')->find($selectedSubcategory->id);
             $addon = $subcategory?->addon;
             $pdfPath = $subcategory?->pdf_path;
         }
 
-        return view('menu.index', compact(
-            'categories',
-            'subcategories',
-            'menus',
-            'addon',
-            'selectedCategory',
-            'selectedSubcategory',
-            'pdfPath'
-        ));
+        return view('menu.index', [
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'menus' => $menus,
+            'addon' => $addon,
+            'selectedCategory' => $selectedCategory,
+            'selectedSubcategory' => $selectedSubcategory,
+            'pdfPath' => $pdfPath,
+        ]);
     }
 }
