@@ -19,8 +19,8 @@
         <nav>
             <ul>
                 <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#menu" class="nav-link">Menu</a></li>
-                <li><a href="{{ route('gallery') }}" class="nav-link">Gallery</a></li>
+                <li><a href="{{ route('menu') }}" class="nav-link">Menu</a></li>
+                <li><a href="{{ route('gallery') }}#gallery" class="nav-link">Gallery</a></li>
                 <li><a href="#order" class="nav-link">Order</a></li>
             </ul>
         </nav>
@@ -36,33 +36,20 @@
     <section class="menu" id="menu">
         <h2 class="section-title" data-aos="fade-up">Menu</h2>
         <div class="menu-items">
-            <a href="box.html" class="card-link">
-                <div class="menu-card">
-                    <img src="assets/image/box nasi.jpg" alt="Box" />
-                    <p>Box</p>
-                </div>
-            </a>
+            @php
+            use Illuminate\Support\Facades\Storage;
+            @endphp
 
-            <a href="wp.html" class="card-link">
+            @foreach ($menuCategories as $category)
+            <a href="{{ route('menu', ['category' => $category->id]) }}" class="card-link">
                 <div class="menu-card">
-                    <img src="assets/image/TC_09003.jpg" alt="Hampers" />
-                    <p>Wedding Package</p>
+                    <img
+                        src="{{ $category->thumbnail?->image ? Storage::url($category->thumbnail->image) : asset('assets/image/default.jpg') }}"
+                        alt="{{ $category->name }}" />
+                    <p>{{ $category->name }}</p>
                 </div>
             </a>
-
-            <a href="buffet.html" class="card-link">
-                <div class="menu-card">
-                    <img src="assets/image/bafet.jpg" alt="Buffet" />
-                    <p>Buffet</p>
-                </div>
-            </a>
-
-            <a href="tumpeng.html" class="card-link">
-                <div class="menu-card">
-                    <img src="assets/image/tumpngg.jpg" alt="Tumpeng" />
-                    <p>Tumpeng</p>
-                </div>
-            </a>
+            @endforeach
         </div>
     </section>
 
@@ -70,26 +57,19 @@
     <section class="gallery" id="gallery">
         <h2 class="section-title" data-aos="fade-up">Gallery</h2>
         <div class="gallery-items">
-            <a href="fnb.html" class="card-link">
-                <div class="gallery-card">
-                    <img src="assets/image/fnb.png" alt="Food and Beverage" />
-                    <p>Food and Beverage</p>
+            @foreach($galleryCategories as $category)
+            <a href="{{ route('gallery', ['category' => $category->id]) }}" class="card-link">
+                <div class="menu-card">
+                    <img
+                        src="{{ $category->galleries->first()?->image ? asset('storage/' . $category->galleries->first()->image) : asset('assets/image/default.jpg') }}"
+                        alt="{{ $category->name }}" />
+                    <p>{{ $category->name }}</p>
                 </div>
             </a>
-            <a href="wd.html" class="card-link">
-                <div class="gallery-card">
-                    <img src="assets/image/wd.png" alt="Wedding" />
-                    <p>Wedding Decoration</p>
-                </div>
-            </a>
-            <a href="stall.html" class="card-link">
-                <div class="gallery-card">
-                    <img src="assets/image/stall.png" alt="Stall" />
-                    <p>Stall</p>
-                </div>
-            </a>
+            @endforeach
         </div>
     </section>
+
 
     <!-- Order Section -->
     <section class="order" id="order">

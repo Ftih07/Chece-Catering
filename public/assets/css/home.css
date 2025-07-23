@@ -261,7 +261,7 @@ html {
 .footer {
     text-align: center;
     padding: 30px 20px;
-    background-image: url("image/baground2.png");
+    background-image: url("assets/image/baground2.png");
     background-size: cover;
     color: white;
     position: relative;
