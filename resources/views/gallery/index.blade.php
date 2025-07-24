@@ -4,8 +4,67 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery - Food and Beverage</title>
+    <title>
+        @if($selectedCategory)
+        Galeri Foto {{ $selectedCategory->name }} | Cheche Catering
+        @else
+        Galeri Foto Makanan & Minuman | Cheche Catering
+        @endif
+    </title>
+    <meta name="description" content="
+        @if($selectedCategory)
+            Lihat koleksi galeri foto makanan dan minuman {{ strtolower($selectedCategory->name) }} dari Cheche Catering. Inspirasi visual untuk acara Anda di Purwokerto.
+        @else
+            Jelajahi galeri foto lengkap makanan dan minuman dari Cheche Catering. Dapatkan inspirasi untuk menu katering pernikahan, event, dan pesta di Purwokerto.
+        @endif
+    ">
+    <meta name="keywords" content="
+        @if($selectedCategory)
+            galeri foto {{ strtolower($selectedCategory->name) }} katering, foto makanan {{ strtolower($selectedCategory->name) }}, Cheche Catering Purwokerto, gambar catering
+        @else
+            galeri foto makanan, galeri minuman, katering Purwokerto, Cheche Catering, foto katering, inspirasi menu
+        @endif
+    ">
+    <meta name="author" content="Cheche Catering" />
 
+    <link rel="icon" href="{{ asset('assets/images/logo/logo.png') }}" type="image/x-icon" />
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <meta property="og:title" content="
+        @if($selectedCategory)
+            Galeri Foto {{ $selectedCategory->name }} | Cheche Catering
+        @else
+            Galeri Foto Makanan & Minuman | Cheche Catering
+        @endif
+    " />
+    <meta property="og:description" content="
+        @if($selectedCategory)
+            Lihat koleksi galeri foto makanan dan minuman {{ strtolower($selectedCategory->name) }} dari Cheche Catering. Inspirasi visual untuk acara Anda di Purwokerto.
+        @else
+            Jelajahi galeri foto lengkap makanan dan minuman dari Cheche Catering. Dapatkan inspirasi untuk menu katering pernikahan, event, dan pesta di Purwokerto.
+        @endif
+    " />
+    <meta property="og:image" content="{{ asset('assets/images/og-gallery-image.jpg') }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="
+        @if($selectedCategory)
+            Galeri Foto {{ $selectedCategory->name }} | Cheche Catering
+        @else
+            Galeri Foto Makanan & Minuman | Cheche Catering
+        @endif
+    " />
+    <meta name="twitter:description" content="
+        @if($selectedCategory)
+            Temukan inspirasi visual menu katering {{ strtolower($selectedCategory->name) }} terbaik dari Cheche Catering di galeri kami.
+        @else
+            Lihat koleksi foto makanan dan minuman katering Cheche Catering yang menggugah selera untuk acara Anda di Purwokerto.
+        @endif
+    " />
+    <meta name="twitter:image" content="{{ asset('assets/images/og-gallery-image.jpg') }}" />
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&family=Satisfy:wght@400&display=swap" rel="stylesheet">
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Error Pages - Cheche Catering</title>
+    <title>404 - Halaman Tidak Ditemukan | Cheche Catering</title>
 
     <!-- Google Fonts -->
     <link

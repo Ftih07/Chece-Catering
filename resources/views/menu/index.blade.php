@@ -4,7 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paket Nasi Box</title>
+    <title>
+        @if($selectedSubcategory)
+        Menu {{ $selectedSubcategory->name }} | {{ $selectedCategory->name }} - Cheche Catering
+        @elseif($selectedCategory)
+        Menu {{ $selectedCategory->name }} | Cheche Catering
+        @else
+        Daftar Menu Katering Lengkap | Cheche Catering
+        @endif
+    </title>
+    <meta name="description" content="
+        @if($selectedSubcategory)
+            Lihat semua pilihan menu {{ $selectedSubcategory->name }} dari kategori {{ $selectedCategory->name }} Cheche Catering di Purwokerto. Temukan sajian lezat untuk acara Anda.
+        @elseif($selectedCategory)
+            Jelajahi pilihan menu {{ $selectedCategory->name }} Cheche Catering yang bervariasi. Sajian katering premium untuk segala kebutuhan acara Anda di Purwokerto.
+        @else
+            Jelajahi daftar menu katering lengkap Cheche Catering di Purwokerto. Pilihan menu bervariasi untuk pernikahan, ulang tahun, meeting, dan event lainnya.
+        @endif
+    ">
+    <meta name="keywords" content="
+        @if($selectedSubcategory)
+            menu {{ strtolower($selectedSubcategory->name) }}, {{ strtolower($selectedCategory->name) }} Cheche Catering, katering Purwokerto, daftar menu katering
+        @elseif($selectedCategory)
+            menu {{ strtolower($selectedCategory->name) }} Cheche Catering, katering Purwokerto, daftar menu katering
+        @else
+            daftar menu katering, menu Cheche Catering, katering Purwokerto, pilihan menu catering, harga catering
+        @endif
+    ">
+    <meta name="author" content="Cheche Catering" />
+
+    <link rel="icon" href="{{ asset('assets/images/logo/logo.png') }}" type="image/x-icon" />
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <meta property="og:title" content="
+        @if($selectedSubcategory)
+            Menu {{ $selectedSubcategory->name }} | {{ $selectedCategory->name }} - Cheche Catering
+        @elseif($selectedCategory)
+            Menu {{ $selectedCategory->name }} | Cheche Catering
+        @else
+            Daftar Menu Katering Lengkap | Cheche Catering
+        @endif
+    " />
+    <meta property="og:description" content="
+        @if($selectedSubcategory)
+            Lihat semua pilihan menu {{ $selectedSubcategory->name }} dari kategori {{ $selectedCategory->name }} Cheche Catering di Purwokerto. Temukan sajian lezat untuk acara Anda.
+        @elseif($selectedCategory)
+            Jelajahi pilihan menu {{ $selectedCategory->name }} Cheche Catering yang bervariasi. Sajian katering premium untuk segala kebutuhan acara Anda di Purwokerto.
+        @else
+            Jelajahi daftar menu katering lengkap Cheche Catering di Purwokerto. Pilihan menu bervariasi untuk pernikahan, ulang tahun, meeting, dan event lainnya.
+        @endif
+    " />
+    <meta property="og:image" content="{{ asset('assets/images/og-menu-image.jpg') }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="
+        @if($selectedSubcategory)
+            Menu {{ $selectedSubcategory->name }} | {{ $selectedCategory->name }} - Cheche Catering
+        @elseif($selectedCategory)
+            Menu {{ $selectedCategory->name }} | Cheche Catering
+        @else
+            Daftar Menu Katering Lengkap | Cheche Catering
+        @endif
+    " />
+    <meta name="twitter:description" content="
+        @if($selectedSubcategory)
+            Cari menu {{ strtolower($selectedSubcategory->name) }} katering di Purwokerto? Cek pilihan lezat dari Cheche Catering sekarang!
+        @elseif($selectedCategory)
+            Temukan semua menu {{ strtolower($selectedCategory->name) }} terbaik untuk katering Anda dari Cheche Catering.
+        @else
+            Lihat daftar menu katering Cheche Catering yang lengkap dan siap memenuhi kebutuhan acara Anda di Purwokerto.
+        @endif
+    " />
+    <meta name="twitter:image" content="{{ asset('assets/images/og-menu-image.jpg') }}" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -411,7 +484,7 @@
                     @endif
                 </p>
                 @else
-                <p class="page-subtitle">Discover our delicious food selections</p>
+                <p class=" page-subtitle">Discover our delicious food selections</p>
                 @endif
             </div>
         </div>

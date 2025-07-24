@@ -4,7 +4,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cheche Catering</title>
+    <title>Cheche Catering - Jasa Katering Pernikahan & Acara di Purwokerto</title>
+    <meta name="description" content="Cheche Catering menyediakan jasa katering pernikahan, ulang tahun, meeting, dan event lainnya di Purwokerto. Sajian lezat, higienis, dan pelayanan profesional sejak 2006.">
+    <meta name="keywords" content="katering Purwokerto, catering pernikahan Purwokerto, catering ulang tahun, catering event, catering nasi box, snack box Purwokerto, jasa boga Purwokerto, Cheche Catering">
+    <meta name="author" content="Cheche Catering" />
+
+    <link rel="icon" href="{{ asset('assets/images/logo/logo.png') }}" type="image/x-icon" />
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <meta property="og:title" content="Cheche Catering: Katering Terbaik untuk Pernikahan & Acara Anda di Purwokerto" />
+    <meta property="og:description" content="Cheche Catering menyediakan jasa katering pernikahan, ulang tahun, meeting, dan event lainnya di Purwokerto. Sajian lezat, higienis, dan pelayanan profesional sejak 2006." />
+    <meta property="og:image" content="{{ asset('assets/images/home/hero/hero-images.png') }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cheche Catering: Katering Terbaik untuk Pernikahan & Acara Anda di Purwokerto" />
+    <meta name="twitter:description" content="Cari katering di Purwokerto? Cheche Catering hadir dengan menu lezat, higienis, dan pelayanan profesional untuk segala acara Anda. Pesan sekarang!" />
+    <meta name="twitter:image" content="{{ asset('assets/images/home/hero/hero-images.png') }}" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
